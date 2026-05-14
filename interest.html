@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Interest | Nurul Syafiqah</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: url('bg6.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            position: relative; 
+            overflow-x: hidden;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(243, 217, 255, 0.3); 
+            backdrop-filter: blur(8px); 
+            z-index: -1;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #c8aee0; 
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #4a4a4a;
+            text-align: center;
+            padding: 18px 26px; 
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #e5c2ed;
+            color: #000;
+        }
+
+        .navbar a.active {
+            background-color: #d9c2ff;
+            color: #5e4b8d; 
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 3.8rem;
+            color: #5e4b8d;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #5e4b8d;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .hobby-container {
+            max-width: 1200px;
+            width: 95%;
+            margin: auto;
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hobby-item {
+            padding: 10px;
+            width: 25%; 
+        }
+
+        .hobby-card {
+            background: rgba(219, 171, 219, 0.3); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 25px 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(94, 75, 141, 0.1);
+            transition: 0.4s ease;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            
+            height: 100%; 
+            min-height: 520px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(94, 75, 141, 0.15);
+            background: rgba(219, 171, 219, 0.5); 
+        }
+
+        .hobby-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #5e4b8d;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hobby-name::after {
+            content: '';
+            width: 50%;
+            height: 2px;
+            background: #c8aee0;
+            position: absolute;
+            bottom: -5px;
+            left: 25%;
+        }
+
+        .sub-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            flex-grow: 1; 
+        }
+
+        .gallery-item {
+            width: 95%;
+            overflow: hidden;
+            border-radius: 15px;
+            background: #fff;
+        }
+
+        .sub-img {
+            width: 100%;
+            height: 140px; 
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .img-desc {
+            font-size: 11px;
+            color: #666;
+            padding: 8px 5px;
+            margin: 0;
+            font-style: italic;
+            min-height: 35px; 
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .audio-section {
+            background: rgba(211, 177, 222, 0.4); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 30px;
+            
+            border-radius: 40px;
+            border: 10px solid #ffffff; 
+            outline: 2px solid rgba(211, 177, 222, 0.8); 
+            
+            max-width: 450px;
+            width: 85%;
+            margin: 60px auto;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transition: 0.4s ease;
+        }
+
+        .audio-section:hover {
+            transform: scale(1.02) rotate(0.5deg);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+            background: rgba(211, 177, 222, 0.6);
+        }
+
+        .audio-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #5e4b8d;
+            margin-bottom: 5px;
+        }
+
+        audio { 
+            width: 100%; 
+            margin-top: 20px;
+            filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.1));
+        }
+
+        footer { 
+            padding: 40px; 
+            color: #5e4b8d; 
+            font-size: 0.85rem; 
+            text-align: center; 
+            width: 100%;
+        }
+
+        @media screen and (max-width: 1100px) {
+            .hobby-item { width: 50%; } 
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar a { float: none; width: 100%; text-align: left; padding: 12px 20px; }
+            .hobby-item { width: 100%; } 
+            h2 { font-size: 2.8rem; }
+            .hobby-card { min-height: auto; } 
+            .audio-section { border-width: 6px; } 
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="education.html">Education</a>
+    <a href="interest.html" class="active">Interest</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="w3-container w3-animate-opacity">
+    <h2>My Hobbies & Interests</h2>
+    <p class="subtitle">Capturing moments & chasing passions</p>
+
+    <div class="hobby-container">
+        
+        <div class="hobby-item">
+            <div class="hobby-card">
+                <div class="hobby-name">Hiking</div>
+                <div class="sub-gallery">
+                    <div class="gallery-item">
+                        <img src="kerengga1.jpg" class="sub-img" alt="Hike 1">
+                        <p class="img-desc">View from the top of Mount Kerengga</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="hiking1.jpeg" class="sub-img" alt="Hike 2">
+                        <p class="img-desc">Hiking track in Bukit Perangin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hobby-item">
+            <div class="hobby-card">
+                <div class="hobby-name">Reading</div>
+                <div class="sub-gallery">
+                    <div class="gallery-item">
+                        <img src="novel1.jpg" class="sub-img" alt="Novel 1">
+                        <p class="img-desc">Collection of Malay novels</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="novel4.jpg" class="sub-img" alt="Novel 2">
+                        <p class="img-desc">Advice from "Dr Alpha Male"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hobby-item">
+            <div class="hobby-card">
+                <div class="hobby-name">Waterfall</div>
+                <div class="sub-gallery">
+                    <div class="gallery-item">
+                        <img src="waterfall2.jpg" class="sub-img" alt="Fall 1">
+                        <p class="img-desc">Tupah Recreational Forest</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="tirai.jpg" class="sub-img" alt="Fall 2">
+                        <p class="img-desc">The majestic Tirai Waterfall</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hobby-item">
+            <div class="hobby-card">
+                <div class="hobby-name">Sunset</div>
+                <div class="sub-gallery">
+                    <div class="gallery-item">
+                        <img src="sunset14.jpg" class="sub-img" alt="Sunset 1">
+                        <p class="img-desc">Golden hour at PTSS</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="sunset1.jpg" class="sub-img" alt="Sunset 2">
+                        <p class="img-desc">View at Tanjung Dawai</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="audio-section">
+        <h3>My Favourite Song</h3>
+        <p style="font-style: italic; font-size: 0.8rem; color: #5e4b8d; opacity: 0.8;">"Listening to music relaxes my mind"</p>
+        <audio controls>
+            <source src="nasheed.mp3" type="audio/mp3">
+        </audio>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Nurul Syafiqah | IML470 Individual Project</p>
+</footer>
+
+</body>
+</html>

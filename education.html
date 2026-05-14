@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Education | Nurul Syafiqah</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: url('bg1.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            position: relative; 
+            overflow-x: hidden;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(243, 217, 255, 0.3); 
+            backdrop-filter: blur(6px); 
+            z-index: -1;
+        }
+
+        .bg-orb {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.4);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: 0;
+            animation: float 12s infinite alternate;
+        }
+        .orb-1 { top: 10%; left: -150px; background: #e1bee7; }
+        .orb-2 { bottom: 10%; right: -150px; background: #b39ddb; animation-delay: -6s; }
+
+        @keyframes float {
+            from { transform: translateY(0) rotate(0deg); }
+            to { transform: translateY(60px) rotate(15deg); }
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: rgba(200, 174, 224, 0.85);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #4a4a4a;
+            text-align: center;
+            padding: 18px 26px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .navbar a.active { background-color: #d9c2ff; color: #5e4b8d; }
+        .navbar a:hover { background-color: #e5c2ed; color: #000; }
+
+        .container {
+            width: 95%;
+            max-width: 1100px;
+            margin-top: 60px;
+            margin-bottom: 60px;
+            z-index: 10;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 3.5rem;
+            color: #5e4b8d;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center; 
+            color: #5e4b8d; 
+            font-style: italic; 
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: rgba(94, 75, 141, 0.3);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 40px 0;
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            border: 4px solid #b388eb;
+            z-index: 2;
+            border-radius: 50%;
+            transition: 0.3s ease;
+        }
+
+        .timeline-item:hover::after {
+            background-color: #5e4b8d;
+            transform: translateX(-50%) scale(1.3);
+        }
+
+        .left { justify-content: flex-start; }
+        .left .content-card { 
+            width: 35%; 
+            margin-right: 15%; 
+        }
+        .left .memory-gallery { width: 43%; margin-left: 7%; justify-content: flex-start; }
+
+        .right { flex-direction: row-reverse; }
+        .right .content-card { 
+            width: 35%; 
+            margin-left: 15%; 
+        }
+        .right .memory-gallery { width: 43%; margin-right: 7%; justify-content: flex-end; }
+
+        .content-card {
+            padding: 20px; 
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(94, 75, 141, 0.05);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.4s ease;
+        }
+
+        .timeline-item:hover .content-card {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 15px 45px rgba(94, 75, 141, 0.15);
+        }
+
+        .logo-img { width: 70px; margin-bottom: 12px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+        
+        .year { 
+            font-weight: 600; 
+            color: #b388eb; 
+            font-size: 0.9rem; 
+            letter-spacing: 1.5px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .institution { 
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem; 
+            font-weight: 600; 
+            color: #333; 
+            margin: 5px 0; 
+        }
+
+        .course { 
+            font-family: 'Montserrat', sans-serif;
+            font-style: italic; 
+            color: #777; 
+            margin-bottom: 15px; 
+            font-size: 0.95rem; 
+        }
+
+        .memory-gallery {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .outside-photo {
+            width: 150px; 
+            height: 150px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 5px #f9e6ff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: 0.4s ease;
+        }
+
+        .timeline-item:hover .outside-photo {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .details {
+            display: none;
+            margin-top: 15px;
+            padding-top: 20px;
+            border-top: 1px dashed #d1c4e9;
+            text-align: left;
+            font-size: 0.9rem;
+            color: #555;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .details h4 { 
+            color: #5e4b8d; 
+            margin-bottom: 8px; 
+            text-transform: uppercase; 
+            font-size: 0.75rem; 
+            letter-spacing: 1px;
+            font-weight: 700; 
+        }
+
+        .details p { margin: 0 0 12px 0; line-height: 1.6; }
+
+        footer { padding: 50px; color: #5e4b8d; font-size: 0.85rem; text-align: center; z-index: 10; }
+
+        @media screen and (max-width: 900px) {
+            .memory-gallery { display: none; } 
+            .left .content-card, .right .content-card { width: 45%; margin: 0 2%; }
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 20px; }
+            .timeline-item { flex-direction: column !important; align-items: flex-start; padding-left: 55px; }
+            .timeline-item::after { left: 20px; top: 40px; }
+            .left .content-card, .right .content-card { width: 90%; margin: 15px 0; }
+            h2 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-orb orb-1"></div>
+<div class="bg-orb orb-2"></div>
+
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="education.html" class="active">Education</a>
+    <a href="interest.html">Interest</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<div class="container">
+    <h2>My Education Journey</h2>
+    <p class="subtitle">(Click each card to see details)</p>
+
+    <div class="timeline">
+
+        <div class="timeline-item left" onclick="toggleDetails(this)">
+            <div class="content-card">
+                <img src="pasti.jpg" alt="Logo" class="logo-img">
+                <br><span class="year">2009 - 2010</span>
+                <div class="institution">Pasti Al-Akhlak</div>
+                <div class="course">Kindergarten</div>
+                <div class="details">
+                    <h4>Vision</h4>
+                    <p>Melahirkan Insan Soleh di Malaysia melalui pendidikan prasekolah.</p>
+                    <h4>Mision</h4>
+                    <p>Meningkatkan kualiti pengajaran dan pengurusan PASTI.</p>
+                </div>
+            </div>
+            <div class="memory-gallery">
+                <img src="pasti.jpeg" alt="Memory" class="outside-photo">
+                <img src="pasti1.jpeg" alt="Memory" class="outside-photo">
+            </div>
+        </div>
+
+        <div class="timeline-item right" onclick="toggleDetails(this)">
+            <div class="content-card">
+                <img src="skl.jpg" alt="Logo" class="logo-img">
+                <br><span class="year">2011 - 2016</span>
+                <div class="institution">SK Langgar</div>
+                <div class="course">UPSR</div>
+                <div class="details">
+                    <h4>Vision</h4>
+                    <p>Pendidikan Berkualiti, Insan Terdidik, Negara Sejahtera.</p>
+                    <h4>Mision</h4>
+                    <p>Melestarikan sistem pendidikan yang berkualiti untuk membangunkan potensi individu.</p>
+                    <h4>Motto</h4>
+                    <p>Belajar dan Berbakti.</p>
+                </div>
+            </div>
+            <div class="memory-gallery">
+                <img src="skl1.jpg" alt="Memory" class="outside-photo">
+            </div>
+        </div>
+
+        <div class="timeline-item left" onclick="toggleDetails(this)">
+            <div class="content-card">
+                <img src="smkl.jpg" alt="Logo" class="logo-img">
+                <br><span class="year">2017 - 2021</span>
+                <div class="institution">SMK Langgar</div>
+                <div class="course">SPM</div>
+                <div class="details">
+                    <h4>Vision</h4>
+                    <p>Pendidikan Berkualiti Insan Terdidik Negara Sejahtera.</p>
+                    <h4>Mision</h4>
+                    <p>Meningkatkan kecemerlangan akademik, sahsiah dan kokurikulum.</p>
+                    <h4>Motto</h4>
+                    <p>Ilmu, Amal, Bakti.</p>
+                </div>
+            </div>
+            <div class="memory-gallery">
+                <img src="smkl1.jpeg" alt="Memory" class="outside-photo">
+                <img src="smkl2.jpeg" alt="Memory" class="outside-photo">
+            </div>
+        </div>
+
+        <div class="timeline-item right" onclick="toggleDetails(this)">
+            <div class="content-card">
+                <img src="ptss.png" alt="Logo" class="logo-img">
+                <br><span class="year">2022 - 2025</span>
+                <div class="institution">Politeknik Tuanku Syed Sirajuddin</div>
+                <div class="course">Diploma Event Management</div>
+                <div class="details">
+                    <h4>Vision</h4>
+                    <p>Menjadi Institusi TVET Yang Unggul.</p>
+                    <h4>Mision</h4>
+                    <p>Menyediakan akses kepada program TVET berkualiti dan diiktiraf.</p>
+                    <h4>Objective</h4>
+                    <p>Melahirkan graduan yang kompeten dan mempunyai nilai kebolehpasaran yang tinggi.</p>
+                </div>
+            </div>
+            <div class="memory-gallery">
+                <img src="convo1.jpeg" alt="Memory" class="outside-photo">
+                <img src="convo3.jpeg" alt="Memory" class="outside-photo">
+            </div>
+        </div>
+
+        <div class="timeline-item left" onclick="toggleDetails(this)">
+            <div class="content-card">
+                <img src="uitm.jpg" alt="Logo" class="logo-img">
+                <br><span class="year">2025 - 2028</span>
+                <div class="institution">UiTM Kedah</div>
+                <div class="course">Bachelor of Library Management</div>
+                <div class="details">
+                    <h4>Vision</h4>
+                    <p>Menjadikan UiTM sebuah universiti unggul yang berteraskan kecemerlangan akademik.</p>
+                    <h4>Mision</h4>
+                    <p>Memperjuangkan kecemerlangan bangsa melalui pemindahan ilmu dan penerapan nilai murni.</p>
+                    <h4>Objective</h4>
+                    <p>Menyediakan peluang pendidikan yang seluas-luasnya kepada bumiputera.</p>
+                </div>
+            </div>
+            <div class="memory-gallery">
+                <img src="uitm1.jpeg" alt="Memory" class="outside-photo">
+                <img src="uitm2.jpeg" alt="Memory" class="outside-photo">
+                <img src="uitm3.jpeg" alt="Memory" class="outside-photo">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Nurul Syafiqah | IML470 Individual Project</p>
+</footer>
+
+<script>
+function toggleDetails(element) {
+    const details = element.querySelector('.details');
+    if (details.style.display === "block") {
+        details.style.display = "none";
+    } else {
+        details.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>

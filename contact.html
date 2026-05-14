@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Nurul Syafiqah</title>
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: url('bg2.png') no-repeat center center fixed; 
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            position: relative; 
+            overflow-x: hidden;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(243, 217, 255, 0.3); 
+            backdrop-filter: blur(13px); 
+            z-index: -1;
+        }
+
+        .navbar {
+            background-color: #c8aee0;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #4a4a4a;
+            text-align: center;
+            padding: 18px 26px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #e5c2ed;
+            color: #000;
+        }
+
+        .navbar a.active {
+            background-color: #d9c2ff;
+            color: #5e4b8d;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center;
+            width: 100%;
+            flex-grow: 1; 
+            padding: 20px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 3.8rem;
+            color: #5e4b8d;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: #5e4b8d;
+            margin-bottom: 30px;
+            font-style: italic;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .contact-container {
+            width: 90%;
+            max-width: 500px; 
+            background: rgba(255, 255, 255, 0.3); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); 
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-bottom: 8px solid rgba(200, 174, 224, 0.8);
+            
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            text-align: center; 
+            margin: 0 auto; 
+            transition: transform 0.3s ease;
+        }
+
+        .contact-container:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+        }
+
+        .info-item i {
+            font-size: 2.2rem;
+            color: #b388eb;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .info-item p {
+            margin: 5px 0;
+            font-weight: 600;
+            color: #5e4b8d;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+        }
+
+        .info-item a {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: 0.3s;
+            word-wrap: break-word; 
+        }
+
+        .info-item a:hover {
+            color: #b388eb;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center; 
+            gap: 15px;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            background-color: #f3d9ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5e4b8d;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: 0.4s ease;
+        }
+
+        .social-btn:hover {
+            background-color: #5e4b8d;
+            color: white;
+            transform: translateY(-5px) rotate(360deg);
+        }
+
+        footer {
+            padding: 25px;
+            color: #5e4b8d;
+            font-size: 0.85rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar a { float: none; width: 100%; text-align: left; padding: 12px 20px; }
+            h2 { font-size: 2.8rem; }
+            .contact-container { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar w3-animate-top">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="education.html">Education</a>
+        <a href="interest.html">Interest</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <div class="main-content w3-animate-bottom">
+        <h2>Contact Me</h2>
+        <p class="subtitle">Let's stay connected!</p>
+
+        <div class="contact-container">
+            <div class="info-item">
+                <i class="fas fa-envelope-open-text"></i>
+                <p>Official Email</p>
+                <a href="mailto:2025418228@student.uitm.edu.my">2025418228@student.uitm.edu.my</a>
+            </div>
+
+            <hr style="border: 0; border-top: 1px dashed #c8aee0; width: 50%; margin: 25px auto;">
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/" target="_blank" class="social-btn" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                
+                <a href="https://www.tiktok.com/" target="_blank" class="social-btn" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+
+                <a href="https://t.me/fiori27" target="_blank" class="social-btn" title="Telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+            </div>
+
+            <p style="margin-top: 30px; font-size: 0.8rem; color: #888; font-style: italic; line-height: 1.5;">
+                "Feel free to reach out for any inquiries."
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Nurul Syafiqah | IML470 Individual Project</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Nurul Syafiqah</title>
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: url('bg3.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            position: relative; 
+            overflow-x: hidden;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(243, 217, 255, 0.3); 
+            backdrop-filter: blur(10px); 
+            z-index: -1;
+        }
+
+        .navbar {
+            background-color: #c8aee0;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #4a4a4a;
+            text-align: center;
+            padding: 18px 26px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #e5c2ed;
+            color: #000;
+        }
+
+        .navbar a.active {
+            background-color: #d9c2ff;
+            color: #5e4b8d;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 3.5rem;
+            color: #5e4b8d;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+
+        .filter-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid #c8aee0;
+            padding: 10px 25px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #5e4b8d;
+            transition: 0.3s ease;
+            font-size: 0.9rem;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .filter-btn:hover {
+            background: #e5c2ed;
+            transform: scale(1.05);
+        }
+
+        .filter-btn.active {
+            background: #5e4b8d;
+            color: white;
+            border-color: #5e4b8d;
+            box-shadow: 0 4px 10px rgba(94, 75, 141, 0.3);
+        }
+
+        .gallery-container {
+            max-width: 1100px;
+            margin: 0 auto 50px auto;
+            padding: 20px;
+        }
+
+        .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            display: none; 
+            background: #f2d9fa;
+            padding: 6px;             
+            border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(94, 75, 141, 0.1);
+            
+            width: calc(23% - 10px);  
+            min-width: 180px; 
+            
+            text-align: center;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item.show {
+            display: block;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 160px; 
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid #f3d9ff;
+        }
+
+        .gallery-item p {
+            margin-top: 8px; 
+            margin-bottom: 5px;
+            font-size: 0.85rem; 
+            font-weight: 500;
+            color: #5e4b8d;
+            font-style: italic;
+        }
+
+        .video-section {
+    	    background: #f2d9fa;
+    	    max-width: 500px;
+    	    margin: 30px auto;
+    	    padding: 20px;
+   	    border-radius: 30px;
+    	    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    	    text-align: center;
+	}
+
+	video {
+    	    width: 100%;
+    	    border-radius: 15px;
+    	    border: 8px solid #f3e5f5; 
+    	    outline: 2px solid #c8aee0; 
+    	    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+	}
+
+        footer {
+            padding: 40px;
+            color: #5e4b8d;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar a { float: none; width: 100%; text-align: left; padding: 12px 20px; }
+            h2 { font-size: 2.8rem; }
+            .gallery-item { width: 100%; }
+            .filter-btn { padding: 8px 18px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="education.html">Education</a>
+        <a href="interest.html">Interest</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="w3-container">
+        <div class="w3-animate-opacity">
+            <h2>My Gallery</h2>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterSelection('all')">Show All</button>
+                <button class="filter-btn" onclick="filterSelection('myself')">Myself</button>
+                <button class="filter-btn" onclick="filterSelection('beach')">Beach</button>
+                <button class="filter-btn" onclick="filterSelection('travel')">Travel</button>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-grid" id="galleryGrid">
+
+                    <div class="gallery-item myself">
+                        <img src="myself11.jpg" alt="Myself">
+                        <p>Me, Myself & I</p>
+                    </div>
+
+                    <div class="gallery-item myself">
+                        <img src="myself9.jpg" alt="Myself">
+                        <p>Portrait Moment</p>
+                    </div>
+
+                    <div class="gallery-item myself">
+                        <img src="myself3.jpg" alt="Myself">
+                        <p>Play a Firework</p>
+                    </div>
+
+		    <div class="gallery-item myself">
+                        <img src="myself9.jpeg" alt="Myself">
+                        <p>Taking Pictures After Hiking</p>
+                    </div>
+
+                    <div class="gallery-item beach">
+                        <img src="beach1.jpg" alt="Beach">
+                        <p>Sunny Beach Day</p>
+                    </div>
+
+                    <div class="gallery-item beach">
+                        <img src="beach2.jpg" alt="Beach">
+                        <p>Waves & Serenity</p>
+                    </div>
+
+                    <div class="gallery-item beach">
+                        <img src="beach4.jpg" alt="Beach">
+                        <p>Waiting For The Sunset</p>
+                    </div>
+
+		    <div class="gallery-item beach">
+                        <img src="beach3.jpeg" alt="Beach">
+                        <p>Taking Pictures at Tanjung Dawai</p>
+                    </div>
+
+                    <div class="gallery-item travel">
+                        <img src="travel5.jpeg" alt="Travel">
+                        <p>Entering the Border of Thailand</p>
+                    </div>
+
+                    <div class="gallery-item travel">
+                        <img src="travel7.jpeg" alt="Travel">
+                        <p>Lam Pam Canal in Phatthalung</p>
+                    </div>
+
+                    <div class="gallery-item travel">
+                        <img src="travel2.jpg" alt="Travel">
+                        <p>Bazar Ramadan in Thailand</p>
+                    </div>
+
+		    <div class="gallery-item travel">
+                        <img src="travel1.jpg" alt="Travel">
+                        <p>Souvenir Shop</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 2px dashed #c8aee0; width: 60%; margin: 50px auto;">
+
+            <h2>My Motivation Video</h2>
+            <div class="video-section">
+                <video controls>
+                    <source src="fightsong.mp4" type="video/mp4">
+                </video>
+                <p style="margin-top: 20px; color: #5e4b8d; font-weight: 600;">“Behind every successful student is a story of struggle, patience and courage”</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Nurul Syafiqah | IML470 Individual Project</p>
+    </footer>
+
+    <script>
+        filterSelection("all");
+
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("gallery-item");
+            
+            if (c == "all") c = "";
+            
+            for (i = 0; i < x.length; i++) {
+                removeClass(x[i], "show");
+
+                if (x[i].className.indexOf(c) > -1) {
+                    addClass(x[i], "show");
+                }
+            }
+        }
+
+        function addClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+                    element.className += " " + arr2[i];
+                }
+            }
+        }
+
+        function removeClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);     
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        var btnContainer = document.querySelector(".filter-container");
+        var btns = btnContainer.getElementsByClassName("filter-btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                if (current.length > 0) {
+                    // Cari index butang filter yang aktif sahaja
+                    for(let j=0; j<current.length; j++){
+                        if(current[j].classList.contains('filter-btn')){
+                            current[j].className = current[j].className.replace(" active", "");
+                        }
+                    }
+                }
+                this.className += " active";
+            });
+        }
+    </script>
+
+</body>
+</html>
